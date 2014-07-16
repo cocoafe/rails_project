@@ -11,10 +11,63 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140708101524) do
+ActiveRecord::Schema.define(version: 20140712115732) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "aliens", force: true do |t|
+    t.string   "alien_name"
+    t.integer  "category_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "categories", force: true do |t|
+    t.string   "alien_category"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "families", force: true do |t|
+    t.string   "product_family"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "galaxies", force: true do |t|
+    t.string   "galaxy_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "logs", force: true do |t|
+    t.integer  "alien_id"
+    t.integer  "product_id"
+    t.integer  "destination_id"
+    t.string   "stage"
+    t.date     "created_date"
+    t.date     "close_date"
+    t.boolean  "closed"
+    t.decimal  "setup_charge",   precision: 10, scale: 1
+    t.decimal  "revenue_month",  precision: 10, scale: 1, default: 0.0, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "planets", force: true do |t|
+    t.string   "planet_name"
+    t.integer  "galaxy_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "products", force: true do |t|
+    t.string   "product_name"
+    t.integer  "family_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email"

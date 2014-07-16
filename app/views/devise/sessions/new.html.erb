@@ -1,6 +1,9 @@
 <h2>Sign in</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+	Username: admin <br>
+	Password: 12345678 <br>
+	
   <div><%= f.label :login,"Username" %><br />
   <%= f.text_field :login, autofocus: true %></div>
 
@@ -14,4 +17,4 @@
   <div><%= f.submit "Sign in" %></div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+<!-- <%= render "devise/shared/links" %> -->

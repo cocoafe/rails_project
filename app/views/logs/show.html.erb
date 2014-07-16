@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Alien:</strong>
+  <%= @log.alien_id %>
+</p>
+
+<p>
+  <strong>Product:</strong>
+  <%= @log.product_id %>
+</p>
+
+<p>
+  <strong>Destination:</strong>
+  <%= @log.destination_id %>
+</p>
+
+<p>
+  <strong>Stage:</strong>
+  <%= @log.stage %>
+</p>
+
+<p>
+  <strong>Created date:</strong>
+  <%= @log.created_date %>
+</p>
+
+<p>
+  <strong>Close date:</strong>
+  <%= @log.close_date %>
+</p>
+
+<p>
+  <strong>Closed:</strong>
+  <%= @log.closed %>
+</p>
+
+<p>
+  <strong>Setup charge:</strong>
+  <%= @log.setup_charge %>
+</p>
+
+<p>
+  <strong>Revenue month:</strong>
+  <%= @log.revenue_month %>
+</p>
+
+<%= link_to 'Edit', edit_log_path(@log) %> |
+<%= link_to 'Back', logs_path %>

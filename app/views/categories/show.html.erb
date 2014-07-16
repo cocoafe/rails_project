@@ -1,0 +1,12 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Alien category:</strong>
+  <%= @category.alien_category %><br>
+  <% for item in @category.alien %>
+  Alien[<%= item.id %>]: <%= item.alien_name %></br>
+  <% end %>
+</p>
+<%= link_to 'Add Alien', :controller => :aliens, :action => :new, :id => @category.id %>
+<%= link_to 'Edit', edit_category_path(@category) %> |
+<%= link_to 'Back', categories_path %>

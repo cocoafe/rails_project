@@ -1,4 +1,18 @@
 ProjectVodafone::Application.routes.draw do
+  resources :galaxies
+
+  resources :planets
+
+  resources :families
+
+  resources :products
+
+  resources :categories
+
+  resources :aliens
+
+  resources :logs
+
   get "home/index"
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.

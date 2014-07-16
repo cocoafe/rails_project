@@ -1,0 +1,43 @@
+<h1>Listing logs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Alien</th>
+      <th>Product</th>
+      <th>Destination</th>
+      <th>Stage</th>
+      <th>Created date</th>
+      <th>Close date</th>
+      <th>Closed</th>
+      <th>Setup charge</th>
+      <th>Revenue month</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @logs.each do |log| %>
+      <tr>
+        <td><%= log.alien_id %></td>
+        <td><%= log.product_id %></td>
+        <td><%= log.destination_id %></td>
+        <td><%= log.stage %></td>
+        <td><%= log.created_date %></td>
+        <td><%= log.close_date %></td>
+        <td><%= log.closed %></td>
+        <td><%= log.setup_charge %></td>
+        <td><%= log.revenue_month %></td>
+        <td><%= link_to 'Show', log %></td>
+        <td><%= link_to 'Edit', edit_log_path(log) %></td>
+        <td><%= link_to 'Destroy', log, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Log', new_log_path %>

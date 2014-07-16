@@ -1,0 +1,55 @@
+<%= form_for(@log) do |f| %>
+  <% if @log.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@log.errors.count, "error") %> prohibited this log from being saved:</h2>
+
+      <ul>
+      <% @log.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+  <%= f.fields_for :alien do |alien|  %>
+  <%= alien.label :alien_name %>
+  <%= alien.text_field :alien_name %>
+  <% end %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :product_id %><br>
+    <%= f.number_field :product_id %>
+  </div>
+  <div class="field">
+    <%= f.label :destination_id %><br>
+    <%= f.number_field :destination_id %>
+  </div>
+  <div class="field">
+    <%= f.label :stage %><br>
+    <%= f.text_field :stage %>
+  </div>
+  <div class="field">
+    <%= f.label :created_date %><br>
+    <%= f.date_select :created_date %>
+  </div>
+  <div class="field">
+    <%= f.label :close_date %><br>
+    <%= f.date_select :close_date %>
+  </div>
+  <div class="field">
+    <%= f.label :closed %><br>
+    <%= f.check_box :closed %>
+  </div>
+  <div class="field">
+    <%= f.label :setup_charge %><br>
+    <%= f.text_field :setup_charge %>
+  </div>
+  <div class="field">
+    <%= f.label :revenue_month %><br>
+    <%= f.text_field :revenue_month %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

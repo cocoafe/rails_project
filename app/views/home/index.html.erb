@@ -1,3 +1,11 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<h1>Home</h1>
+
+<%= link_to 'Alien Categories' , categories_path %> ->
+<%= link_to 'Aliens' , aliens_path %> <br>
+<%= link_to 'Product Families' , families_path %> ->
+<%= link_to 'Products' , products_path %> <br>
+<%= link_to 'Galaxy' , galaxies_path %> ->
+<%= link_to 'Planet' , planets_path %> <br>
+<%= link_to "Logs", logs_path %>
+<br><br>
 <%= link_to 'logout', destroy_user_session_path, method: :delete%>

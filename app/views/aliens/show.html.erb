@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Alien name:</strong>
+  <%= @alien.alien_name %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @alien.category_id %>
+</p>
+
+<%= link_to 'Edit', edit_alien_path(@alien) %> |
+<%= link_to 'Back', aliens_path %>
