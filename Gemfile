@@ -27,8 +27,14 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
+# Pagination
+gem 'kaminari'
+
+# ERD generator
 gem 'rails-erd'
 gem 'ruby-graphviz'
+
+# Importing CSV
 gem 'smarter_csv'
 
 # Authentication and authorization model 

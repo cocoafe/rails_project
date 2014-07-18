@@ -1,5 +1,5 @@
 <h1>Listing aliens</h1>
-
+<%= paginate @aliens %>
 <table>
   <thead>
     <tr>
@@ -23,7 +23,8 @@
     <% end %>
   </tbody>
 </table>
-
+<br>
+<%= paginate @aliens %>
 <br>
 
 <%= link_to 'New Alien', new_alien_path %>
