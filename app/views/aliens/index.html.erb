@@ -15,7 +15,7 @@
     <% @aliens.each do |alien| %>
       <tr>
         <td><%= alien.alien_name %></td>
-        <td><%= alien.category_id %></td>
+        <td><%= category_show(alien.category_id) %></td>
         <td><%= link_to 'Show', alien %></td>
         <td><%= link_to 'Edit', edit_alien_path(alien) %></td>
         <td><%= link_to 'Destroy', alien, method: :delete, data: { confirm: 'Are you sure?' } %></td>

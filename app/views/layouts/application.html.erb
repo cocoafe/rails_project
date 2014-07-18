@@ -3,12 +3,19 @@
 <head>
   <title>ProjectVodafone</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<div class="header-cont">
+  <%= link_to 'Home', home_index_path unless current_page?(home_index_path)%>
+  <%= link_to 'Aliens' , aliens_path %> 
+  <%= link_to 'Products' , products_path %>
+  <%= link_to 'Planet' , planets_path %>
+  <%= link_to "Logs", logs_path %>
+</div>
+<br>
 <%= yield %>
-
 </body>
 </html>

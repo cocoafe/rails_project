@@ -10,6 +10,8 @@ class AliensController < ApplicationController
   # GET /aliens/1
   # GET /aliens/1.json
   def show
+    @alien = Alien.find(params[:id])
+    @logs = @alien.logs.page(params[:page]).per(50)
   end
 
   # GET /aliens/new

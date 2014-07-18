@@ -1,0 +1,33 @@
+<%= paginate @logs %>
+  <% unless @product.logs.blank? %>
+  <table>
+  <thread>
+  <tr>
+  <th>Log id</th>
+  <th>Alien </th>
+  <th>Planet </th>
+  <th>Created date</th>
+  <th>Close date</th>
+  <th>Stage</th>
+  <th>Setup Charge</th>
+  <th>Revenue Month</th>
+  </tr>
+  </thread>
+  <tbody>
+  <tr>
+  <% @logs.each do |f| %>
+<td> <%= f.id %> </td>
+<td> <%= alien_show(f.alien_id) %></td>
+<td> <%= planet_show(f.planet_id)%></td>
+<td> <%= f.created_date %></td> 
+<td> <%= f.close_date %></td> 
+<td> <%= f.stage %> </td>
+<td> <%= f.setup_charge %> </td>
+<td> <%= f.revenue_month %> </td>
+</tr>
+  <% end %>
+  </tbody>
+  </table>
+  <% else %>
+  No logs<br>
+<% end %>

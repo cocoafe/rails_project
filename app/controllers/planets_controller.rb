@@ -10,6 +10,8 @@ class PlanetsController < ApplicationController
   # GET /planets/1
   # GET /planets/1.json
   def show
+    @planet = Planet.find(params[:id])
+    @logs = @planet.logs.page(params[:page]).per(50)
   end
 
   # GET /planets/new

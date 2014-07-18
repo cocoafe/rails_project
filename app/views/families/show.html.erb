@@ -4,6 +4,10 @@
   <strong>Product family:</strong>
   <%= @family.product_family %>
 </p>
+ <% @family.products.each do |f| %>
+  Product[<%= f.id %>]
+  <%= f.product_name %> <br>
+  <% end %>
 
 <%= link_to 'Edit', edit_family_path(@family) %> |
 <%= link_to 'Back', families_path %>

@@ -4,8 +4,10 @@
   <strong>Galaxy name:</strong>
   <%= @galaxy.galaxy_name %>
 </p>
+  
   <% @galaxy.planet.each do |f| %>
-  <%= f.planet_name %>
+ Planet[<%= f.id %>]
+  <%= f.planet_name %> <br>
   <% end %>
 
 <%= link_to 'Edit', edit_galaxy_path(@galaxy) %> |

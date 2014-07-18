@@ -15,7 +15,7 @@
     <% @planets.each do |planet| %>
       <tr>
         <td><%= planet.planet_name %></td>
-        <td><%= planet.galaxy_id %></td>
+        <td><%= galaxy_show(planet.galaxy_id) %></td>
         <td><%= link_to 'Show', planet %></td>
         <td><%= link_to 'Edit', edit_planet_path(planet) %></td>
         <td><%= link_to 'Destroy', planet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
