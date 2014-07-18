@@ -7,8 +7,37 @@
 
 <p>
   <strong>Category:</strong>
-  <%= @alien.category_id %>
-</p>
+  <%= @alien.category_id %><br> </p>
+  <% unless @alien.logs.blank? %>
+  <table>
+  <thread>
+  <tr>
+  <th>Log id</th>
+  <th>Product </th>
+  <th>Created date</th>
+  <th>Close date</th>
+  <th>Stage</th>
+  <th>Setup Charge</th>
+  <th>Revenue Month</th>
+  </tr>
+  </thread>
+  <tbody>
+  <tr>
+  <% @alien.logs.each do |f| %>
+<td> <%= f.id %> </td> <br> 
+<td> <%= product_show(f.product_id) %></td>
+<td> <%= f.created_date %></td> 
+<td> <%= f.close_date %></td> 
+<td> <%= f.stage %> </td>
+<td> <%= f.setup_charge %> </td>
+<td> <%= f.revenue_month %> </td>
+  <% end %>
+  </tr>
+  </tbody>
+  </table>
+  <% else %>
+  No logs<br>
+<% end %>
 
 <%= link_to 'Edit', edit_alien_path(@alien) %> |
 <%= link_to 'Back', aliens_path %>

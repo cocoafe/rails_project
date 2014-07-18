@@ -11,10 +11,8 @@
     </div>
   <% end %>
   <div class="field">
-  <%= f.fields_for :alien do |alien|  %>
-  <%= alien.label :alien_name %>
-  <%= alien.text_field :alien_name %>
-  <% end %>
+   <%= f.label :alien_id %>
+   <%= f.text_field :alien_id %>
   </div>
   
   <div class="field">
@@ -22,8 +20,8 @@
     <%= f.number_field :product_id %>
   </div>
   <div class="field">
-    <%= f.label :destination_id %><br>
-    <%= f.number_field :destination_id %>
+    <%= f.label :planet_id %><br>
+    <%= f.number_field :planet_id %>
   </div>
   <div class="field">
     <%= f.label :stage %><br>

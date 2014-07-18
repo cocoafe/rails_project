@@ -4,6 +4,9 @@
   <strong>Galaxy name:</strong>
   <%= @galaxy.galaxy_name %>
 </p>
+  <% @galaxy.planet.each do |f| %>
+  <%= f.planet_name %>
+  <% end %>
 
 <%= link_to 'Edit', edit_galaxy_path(@galaxy) %> |
 <%= link_to 'Back', galaxies_path %>

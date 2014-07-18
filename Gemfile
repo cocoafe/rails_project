@@ -29,6 +29,8 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'rails-erd'
 gem 'ruby-graphviz'
+gem 'smarter_csv'
+
 # Authentication and authorization model 
 gem 'devise'
 gem 'cancancan', '~> 1.8'

@@ -44,13 +44,13 @@ ActiveRecord::Schema.define(version: 20140712115732) do
   create_table "logs", force: true do |t|
     t.integer  "alien_id"
     t.integer  "product_id"
-    t.integer  "destination_id"
+    t.integer  "planet_id"
     t.string   "stage"
     t.date     "created_date"
     t.date     "close_date"
     t.boolean  "closed"
-    t.decimal  "setup_charge",   precision: 10, scale: 1
-    t.decimal  "revenue_month",  precision: 10, scale: 1, default: 0.0, null: false
+    t.decimal  "setup_charge",  precision: 10, scale: 1
+    t.decimal  "revenue_month", precision: 10, scale: 1, default: 0.0, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

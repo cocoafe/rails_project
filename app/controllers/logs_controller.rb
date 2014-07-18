@@ -5,18 +5,18 @@ class LogsController < ApplicationController
   # GET /logs.json
   def index
     @logs = Log.all
+
   end
 
   # GET /logs/1
   # GET /logs/1.json
   def show
+
   end
 
   # GET /logs/new
   def new
     @log = Log.new
-    @log.alien.build
-    
     
   end
 
@@ -29,7 +29,6 @@ class LogsController < ApplicationController
   def create
     @log = Log.new(log_params)
     
-
     respond_to do |format|
       if @log.save
         
@@ -74,8 +73,8 @@ class LogsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def log_params
-      params.require(:log).permit(:product_id, :destination_id, :stage, :created_date, :close_date, :closed, :setup_charge, :revenue_month,
-                                  alien_attributes: [:alien_name , :category_id])
+      params.require(:log).permit(:alien_id, :product_id, :planet_id, :stage, :created_date, :close_date, :closed, :setup_charge, :revenue_month)
+
     end
-   
+    
 end

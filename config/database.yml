@@ -2,7 +2,7 @@ development:
   adapter: postgresql
   encoding: unicode
   database: archy_development
-  pool: 5
+  pool: 20
   username: georgi
   password: toor
 
@@ -10,6 +10,6 @@ test:
   adapter: postgresql
   encoding: unicode
   database: archy_test
-  pool: 5
+  pool: 20
   username: georgi
   password: toor
