@@ -1,4 +1,7 @@
 ProjectVodafone::Application.routes.draw do
+  get "charts/index"
+  get "charts/galaxy"
+  
   resources :galaxies
 
   resources :planets

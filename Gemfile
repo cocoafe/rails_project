@@ -34,6 +34,8 @@ gem 'kaminari'
 gem 'rails-erd'
 gem 'ruby-graphviz'
 
+gem 'lazy_high_charts'
+
 # Importing CSV
 gem 'smarter_csv'
 

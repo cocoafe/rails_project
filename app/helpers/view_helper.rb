@@ -1,5 +1,5 @@
 module ViewHelper
-	def product_show(id)
+	def show_product(id)
 
 		product = Product.find_by_id(id)
 
@@ -8,7 +8,7 @@ module ViewHelper
 	    end
 	end
 
-	def planet_show(id)
+	def show_planet(id)
 
 		planet = Planet.find_by_id(id)
 		
@@ -17,7 +17,7 @@ module ViewHelper
 	    end
 	end
 
-	def alien_show(id)
+	def show_alien(id)
 
 		alien = Alien.find_by_id(id)
 		
@@ -26,7 +26,7 @@ module ViewHelper
 	    end
 	end
 
-	def category_show(id)
+	def show_category(id)
 		category = Category.find_by_id(id)
 		
 		unless category.blank?
@@ -34,7 +34,7 @@ module ViewHelper
 	    end
 	end
 
-	def family_show(id)
+	def show_family(id)
 		family = Family.find_by_id(id)
 		
 		unless family.blank?
@@ -42,7 +42,7 @@ module ViewHelper
 	    end
 	end
 
-	def galaxy_show(id)
+	def show_galaxy(id)
 
 		galaxy = Galaxy.find_by_id(id)
 
@@ -52,7 +52,7 @@ module ViewHelper
 
 	end
 
-	def closed_show(bool)
+	def show_closed(bool)
 		if bool
 			"Yes"
 		else

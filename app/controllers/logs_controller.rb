@@ -4,7 +4,7 @@ class LogsController < ApplicationController
   # GET /logs
   # GET /logs.json
   def index
-    @logs = Log.all.page(params[:page]).per(100)
+    @logs = Log.all.page(params[:page]).per(100) 
   end
 
   # GET /logs/1
@@ -73,7 +73,6 @@ class LogsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def log_params
       params.require(:log).permit(:alien_id, :product_id, :planet_id, :stage, :created_date, :close_date, :closed, :setup_charge, :revenue_month)
-
     end
     
 end

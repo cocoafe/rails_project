@@ -1,5 +1,5 @@
 <h1>Listing logs</h1>
- <%= paginate @logs %>
+<%= paginate @logs %>
 <table>
   <thead>
     <tr>
@@ -21,13 +21,13 @@
   <tbody>
     <% @logs.each do |log| %>
       <tr>
-        <td><%= alien_show(log.alien_id) %></td>
-        <td><%= product_show(log.product_id) %></td>
-        <td><%= log.planet_id %></td>
+        <td><%= show_alien(log.alien_id) %></td>
+        <td><%= show_product(log.product_id) %></td>
+        <td><%= show_planet(log.planet_id) %></td>
         <td><%= log.stage %></td>
         <td><%= log.created_date %></td>
         <td><%= log.close_date %></td>
-        <td><%= closed_show(log.closed) %></td>
+        <td><%= show_closed(log.closed) %></td>
         <td><%= log.setup_charge %></td>
         <td><%= log.revenue_month %></td>
         <td><%= link_to 'Show', log %></td>
