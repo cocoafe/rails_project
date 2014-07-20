@@ -1,11 +1,12 @@
 class Galaxy < ActiveRecord::Base
 	has_many :planet
  
-	def profit_galaxy
+	def chart_galaxy
 		galaxy = Galaxy.all
 		galaxy_chart = {}
 		galaxy_chart["Profit"] = nil
 		galaxy_chart["Closed"] = nil
+		galaxy_chart["Name"] = nil
 		profit = 0.0
 		closed = 0
 		galaxy.each do |galaxy|
@@ -22,16 +23,18 @@ class Galaxy < ActiveRecord::Base
 					end
 				end
 			end
-			galaxy_to_ar = [[show_galaxy(galaxy.id) , profit.to_f]]
-			galaxy_closed_to_ar = [[show_galaxy(galaxy.id) , closed]]
+			galaxy_name = [show_galaxy(galaxy.id)]
+			galaxy_to_ar = [profit.to_f]
+			galaxy_closed_to_ar = [closed]
 
 			if galaxy_chart["Profit"].nil?
+				galaxy_chart["Name"] = galaxy_name
 				galaxy_chart["Profit"] = galaxy_to_ar
 			    galaxy_chart["Closed"] = galaxy_closed_to_ar
 		        profit = 0
 		        closed = 0
 			else
-
+	     galaxy_chart["Name"] += galaxy_name
 		 galaxy_chart["Profit"] += galaxy_to_ar
 		 galaxy_chart["Closed"] += galaxy_closed_to_ar
 		 profit = 0
