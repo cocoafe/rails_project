@@ -13,4 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+<<<<<<< HEAD
 //= require_tree .
+=======
+//= require_tree .
+>>>>>>> parent of 800053b... Charts represent data better
