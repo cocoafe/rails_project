@@ -13,4 +13,21 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:username, :email, :password, :password_confirmation, :current_password) }
   end
 
+  def chart(model_data,color1,color2)
+    @chart_galaxy = LazyHighCharts::HighChart.new('graph') do |f|
+        f.title(:text => "Profits and Closed Sales")
+        f.xAxis(:categories => model_data["Name"])
+        f.series(:name => "Profit: ", :yAxis => 0, :data => model_data["Profit"] ,:color => color2)
+        f.series(:name => "Closed Sales:", :yAxis => 1, :data => model_data["Closed"], :color => color1)
+
+        f.yAxis [
+          {:title => {:text => "Profit", :margin => 50} },
+          {:title => {:text => "Closed Sales"}, :opposite => true}
+        ]
+        f.plot_options(:column => { :minPointLength => 9 } )
+        f.legend(:align => 'right', :verticalAlign => 'top', :y => 75, :x => -50, :layout => 'vertical',)
+        f.chart({:defaultSeriesType=>"column"})
+      end
+  end
+
 end
