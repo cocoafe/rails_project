@@ -1,4 +1,5 @@
-<%= paginate @logs %>
+
+<div class="bordered">
   <% unless @product.logs.blank? %>
   <table>
   <thread>
@@ -31,3 +32,4 @@
   <% else %>
   No logs<br>
 <% end %>
+</div>

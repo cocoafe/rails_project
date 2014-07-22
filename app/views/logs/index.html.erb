@@ -1,43 +1,66 @@
-<h1>Listing logs</h1>
-<%= paginate @logs %>
-<table>
-  <thead>
-    <tr>
-      <th>Alien</th>
-      <th>Product</th>
-      <th>Planet</th>
-      <th>Stage</th>
-      <th>Created date</th>
-      <th>Close date</th>
-      <th>Closed</th>
-      <th>Setup charge</th>
-      <th>Revenue month</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+<%= stylesheet_link_tag 'wice_grid' %>
+<h1>Listing Logs</h1>
+<%= link_to 'New Log', new_log_path %>
+<%= grid(@logs_grid) do |g|
 
-  <tbody>
-    <% @logs.each do |log| %>
-      <tr>
-        <td><%= show_alien(log.alien_id) %></td>
-        <td><%= show_product(log.product_id) %></td>
-        <td><%= show_planet(log.planet_id) %></td>
-        <td><%= log.stage %></td>
-        <td><%= log.created_date %></td>
-        <td><%= log.close_date %></td>
-        <td><%= show_closed(log.closed) %></td>
-        <td><%= log.setup_charge %></td>
-        <td><%= log.revenue_month %></td>
-        <td><%= link_to 'Show', log %></td>
-        <td><%= link_to 'Edit', edit_log_path(log) %></td>
-        <td><%= link_to 'Destroy', log, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    g.row_attributes do |version|
+    {style: 'background-color: rgb(255, 255, 204);'}
+    end
+
+  
+
+  g.column name: 'ID', attribute: 'id' do |log|
+    log.id
+  end
+
+  g.column name: 'Alien(id)', attribute: 'alien_id' do |log|
+    show_alien(log.alien_id)
+  end
+
+  g.column name: 'Product(id)', attribute: 'product_id' do |log|
+    show_product(log.product_id)
+  end
+
+  g.column name: 'Planet(id)', attribute: 'planet_id' do |log|
+    show_planet(log.planet_id)
+  end
+
+  g.column name: 'Stage', attribute: 'stage' do |log|
+    log.stage
+  end
+
+  g.column name: 'Created Date', attribute: 'created_date' do |log|
+    log.created_date
+  end
+
+  g.column name: 'Close Date', attribute: 'close_date' do |log|
+    log.close_date
+  end
+
+  g.column name: 'Closed', attribute: 'closed' do |log|
+    log.closed? ? 'Yes' : 'No'
+  end
+
+  g.column name: 'Setup Charge', attribute: 'setup_charge' do |log|
+    log.setup_charge
+  end
+
+  g.column name: 'Revenue Month', attribute: 'revenue_month' do |log|
+    log.revenue_month
+  end
+
+  g.column name: 'View' do |log|
+    link_to('View', log_path(log))
+  end
+
+  g.column name: 'Edit' do |log|
+    link_to('Edit', edit_log_path(log))
+  end
+  g.column name: 'Destroy' do |log|
+    link_to 'Destroy', log, method: :delete, data: { confirm: 'Are you sure?' }
+  end
+end -%>
 
 <br>
- <%= paginate @logs %>
+
 <%= link_to 'New Log', new_log_path %>

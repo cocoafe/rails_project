@@ -4,7 +4,7 @@
   <strong>Alien category:</strong>
   <%= @category.alien_category %><br>
   <% for item in @category.alien %>
-  Alien[<%= item.id %>]: <%= item.alien_name %></br>
+  <%= link_to "Alien[#{item.id}] ", alien_path(item.id) %>: <%= item.alien_name %></br>
   <% end %>
 </p>
 <%= link_to 'Add Alien', :controller => :aliens, :action => :new, :id => @category.id %>

@@ -6,7 +6,7 @@
 </p>
   
   <% @galaxy.planet.each do |f| %>
- Planet[<%= f.id %>]
+  <%= link_to "Planet[#{f.id}]", planet_path(f.id)%>
   <%= f.planet_name %> <br>
   <% end %>
 

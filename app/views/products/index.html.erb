@@ -1,29 +1,29 @@
+<div class="table-model">
 <h1>Listing products</h1>
+<%= link_to 'New Product', new_product_path %>
+<%= grid(@products_grid) do |g|
 
-<table>
-  <thead>
-    <tr>
-      <th>Product name</th>
-      <th>Family</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+    g.row_attributes do |version|
+    {style: 'background-color: rgb(255, 255, 204);'}
+    end
 
-  <tbody>
-    <% @products.each do |product| %>
-      <tr>
-        <td><%= product.product_name %></td>
-        <td><%= product.family_id %></td>
-        <td><%= link_to 'Show', product %></td>
-        <td><%= link_to 'Edit', edit_product_path(product) %></td>
-        <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  g.column name: 'Product Name', attribute: 'product_name' do |product|
+    product.product_name
+  end
 
-<br>
+  g.column name: 'Product Family', attribute: 'family_id' do |product|
+    show_category(product.family_id)
+  end
+  g.column name: 'View' do |product|
+    link_to('View', product_path(product))
+  end
 
+  g.column name: 'Edit' do |product|
+    link_to('Edit', edit_product_path(product))
+  end
+  g.column name: 'Destroy' do |product|
+    link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' }
+  end
+end -%>
+</div>
 <%= link_to 'New Product', new_product_path %>

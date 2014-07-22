@@ -1,30 +1,29 @@
+<div class="table-model">
 <h1>Listing aliens</h1>
-<%= paginate @aliens %>
-<table>
-  <thead>
-    <tr>
-      <th>Alien name</th>
-      <th>Category</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+<%= link_to 'New Alien', new_alien_path %>
+<%= grid(@aliens_grid) do |g|
 
-  <tbody>
-    <% @aliens.each do |alien| %>
-      <tr>
-        <td><%= alien.alien_name %></td>
-        <td><%= show_category(alien.category_id) %></td>
-        <td><%= link_to 'Show', alien %></td>
-        <td><%= link_to 'Edit', edit_alien_path(alien) %></td>
-        <td><%= link_to 'Destroy', alien, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<br>
-<%= paginate @aliens %>
-<br>
+    g.row_attributes do |version|
+    {style: 'background-color: rgb(255, 255, 204);'}
+    end
 
+  g.column name: 'Alien Name', attribute: 'alien_name' do |alien|
+    alien.alien_name
+  end
+
+  g.column name: 'Alien Category', attribute: 'category_id' do |alien|
+    show_category(alien.category_id)
+  end
+  g.column name: 'View' do |alien|
+    link_to('View', alien_path(alien))
+  end
+
+  g.column name: 'Edit' do |alien|
+    link_to('Edit', edit_alien_path(alien))
+  end
+  g.column name: 'Destroy' do |alien|
+    link_to 'Destroy', alien, method: :delete, data: { confirm: 'Are you sure?' }
+  end
+end -%>
+</div>
 <%= link_to 'New Alien', new_alien_path %>

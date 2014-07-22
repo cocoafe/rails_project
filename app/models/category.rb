@@ -4,39 +4,44 @@ class Category < ActiveRecord::Base
 	def chart_category
 		category = Category.all
 		category_chart = {}
-		profit = 0.0
+		
 		closed = 0
+		profit_closed = 0
+
 		category.each do |category|
 			category.alien.each do |alien|
 				alien.logs.each do |log|
 					if log.closed?
 						closed += 1
+					    profit_closed += log.revenue_month
+						profit_closed += log.setup_charge if log.setup_charge.present?
 					end
-
-					if log.setup_charge.nil?
-					profit += log.revenue_month
-					else
-					profit += log.revenue_month + log.setup_charge
-					end
+		            
 				end
 			end
 
-			category_to_ar = [profit.to_f]
+			
 			category_closed_to_ar = [closed]
 			category_name = [show_category(category.id)]
-			if category_chart["Profit"].nil?
+			category_closed_profit = [profit_closed.to_f]
+
+			if category_chart["Profit_Closed"].nil?
 				category_chart["Name"] = category_name
-				category_chart["Profit"] = category_to_ar
+				
 			    category_chart["Closed"] = category_closed_to_ar
-		        profit = 0
+			    category_chart["Profit_Closed"] = category_closed_profit
+		      
 		        closed = 0
+		        profit_closed = 0
 			else
 
 		 category_chart["Name"] += category_name
-		 category_chart["Profit"] += category_to_ar
+		
 		 category_chart["Closed"] += category_closed_to_ar
-		 profit = 0
+		 category_chart["Profit_Closed"] += category_closed_profit
+		
 		 closed = 0
+		 profit_closed = 0
 
 		   end
 		end
@@ -50,7 +55,6 @@ class Category < ActiveRecord::Base
 		unless category.blank?
 			category.alien_category
 		end
-
 	end
 end
 

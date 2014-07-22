@@ -4,41 +4,42 @@ class Galaxy < ActiveRecord::Base
 	def chart_galaxy
 		galaxy = Galaxy.all
 		galaxy_chart = {}
-		galaxy_chart["Profit"] = nil
-		galaxy_chart["Closed"] = nil
-		galaxy_chart["Name"] = nil
-		profit = 0.0
+		
 		closed = 0
+		profit_closed = 0
 		galaxy.each do |galaxy|
 			galaxy.planet.each do |planet|
 				planet.logs.each do |log|
 					if log.closed?
 						closed += 1
+						profit_closed += log.revenue_month
+						profit_closed += log.setup_charge if log.setup_charge.present?
 					end
-
-					if log.setup_charge.nil?
-					profit += log.revenue_month
-					else
-					profit += log.revenue_month + log.setup_charge
-					end
+					
+					
+					
 				end
 			end
+			
 			galaxy_name = [show_galaxy(galaxy.id)]
-			galaxy_to_ar = [profit.to_f]
 			galaxy_closed_to_ar = [closed]
+			galaxy_closed_profit = [profit_closed.to_f]
 
-			if galaxy_chart["Profit"].nil?
+			if galaxy_chart["Profit_Closed"].nil?
 				galaxy_chart["Name"] = galaxy_name
-				galaxy_chart["Profit"] = galaxy_to_ar
 			    galaxy_chart["Closed"] = galaxy_closed_to_ar
-		        profit = 0
+			    galaxy_chart["Profit_Closed"] = galaxy_closed_profit
+		        
 		        closed = 0
+		        profit_closed = 0
 			else
 	     galaxy_chart["Name"] += galaxy_name
-		 galaxy_chart["Profit"] += galaxy_to_ar
+		 
 		 galaxy_chart["Closed"] += galaxy_closed_to_ar
-		 profit = 0
+		 galaxy_chart["Profit_Closed"] += galaxy_closed_profit
+		
 		 closed = 0
+		 profit_closed = 0
 		   end
 		end
 		galaxy_chart

@@ -3,6 +3,7 @@ ProjectVodafone::Application.routes.draw do
   get "charts/galaxy"
   get "charts/product_family"  
   get "charts/alien_category"
+  get "charts/logs"
   resources :galaxies
 
   resources :planets

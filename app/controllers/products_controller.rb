@@ -4,14 +4,14 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all
+    @products_grid = initialize_grid(Product)
   end
 
   # GET /products/1
   # GET /products/1.json
   def show
     @product = Product.find(params[:id])
-    @logs = @product.logs.page(params[:page]).per(50)
+    @logs = @product.logs
   end
 
   # GET /products/new

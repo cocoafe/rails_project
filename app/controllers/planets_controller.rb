@@ -4,14 +4,14 @@ class PlanetsController < ApplicationController
   # GET /planets
   # GET /planets.json
   def index
-    @planets = Planet.all
+    @planets_grid = initialize_grid(Planet)
   end
 
   # GET /planets/1
   # GET /planets/1.json
   def show
     @planet = Planet.find(params[:id])
-    @logs = @planet.logs.page(params[:page]).per(50)
+    @logs = @planet.logs
   end
 
   # GET /planets/new

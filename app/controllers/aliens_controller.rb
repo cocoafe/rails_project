@@ -4,14 +4,14 @@ class AliensController < ApplicationController
   # GET /aliens
   # GET /aliens.json
   def index
-    @aliens = Alien.all.page(params[:page]).per(100)
+    @aliens_grid = initialize_grid(Alien)
   end
 
   # GET /aliens/1
   # GET /aliens/1.json
   def show
-    @alien = Alien.find(params[:id])
-    @logs = @alien.logs.page(params[:page]).per(50)
+    @aliens = Alien.find(params[:id])
+    @logs = @aliens.logs.all
   end
 
   # GET /aliens/new

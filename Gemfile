@@ -43,6 +43,10 @@ gem 'smarter_csv'
 gem 'devise'
 gem 'cancancan', '~> 1.8'
 
+
+gem "wice_grid", '3.4.2'
+gem 'jquery-ui-rails'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false

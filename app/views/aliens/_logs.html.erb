@@ -1,4 +1,5 @@
 <% unless @alien.logs.blank? %>
+<div class="bordered">
   <table>
   <thread>
   <tr>
@@ -15,7 +16,7 @@
   <tbody>
   <tr>
   <% @logs.each do |f| %>
-<td> <%= f.id %> </td>
+<td> <%=  f.id%> </td>
 <td> <%= show_product(f.product_id) %></td>
 <td> <%= show_planet(f.planet_id)%></td>
 <td> <%= f.created_date %></td> 
@@ -30,3 +31,4 @@
   <% else %>
   No logs<br>
 <% end %>
+</div>

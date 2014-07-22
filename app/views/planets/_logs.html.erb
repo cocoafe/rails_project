@@ -1,4 +1,4 @@
-<%= paginate @logs %>
+<div class="bordered">
 <% unless @planet.logs.blank? %>
   <table>
   <thread>
@@ -31,3 +31,4 @@
   <% else %>
   No logs<br>
 <% end %>
+</div>

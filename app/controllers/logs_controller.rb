@@ -4,7 +4,8 @@ class LogsController < ApplicationController
   # GET /logs
   # GET /logs.json
   def index
-    @logs = Log.all.page(params[:page]).per(100) 
+    
+    @logs_grid = initialize_grid(Log)
   end
 
   # GET /logs/1

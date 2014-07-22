@@ -3,6 +3,7 @@ development:
   encoding: unicode
   database: archy_development
   pool: 20
+ 
   username: georgi
   password: toor
 

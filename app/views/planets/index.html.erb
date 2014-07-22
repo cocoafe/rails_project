@@ -1,29 +1,29 @@
 <h1>Listing planets</h1>
+<%= link_to 'New Planet', new_planet_path %>
+<div class="table-model">
+<%= grid(@planets_grid) do |g|
 
-<table>
-  <thead>
-    <tr>
-      <th>Planet name</th>
-      <th>Galaxy</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+    g.row_attributes do |version|
+    {style: 'background-color: rgb(255, 255, 204);'}
+    end
 
-  <tbody>
-    <% @planets.each do |planet| %>
-      <tr>
-        <td><%= planet.planet_name %></td>
-        <td><%= show_galaxy(planet.galaxy_id) %></td>
-        <td><%= link_to 'Show', planet %></td>
-        <td><%= link_to 'Edit', edit_planet_path(planet) %></td>
-        <td><%= link_to 'Destroy', planet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  g.column name: 'Planet', attribute: 'planet_name' do |planet|
+    planet.planet_name
+  end
 
-<br>
+  g.column name: 'Galaxy', attribute: 'galaxy_id' do |planet|
+    link_to show_galaxy(planet.galaxy_id) , galaxy_path(planet.galaxy_id)
+  end
+  g.column name: 'View' do |planet|
+    link_to('View', planet_path(planet))
+  end
 
+  g.column name: 'Edit' do |planet|
+    link_to('Edit', edit_planet_path(planet))
+  end
+  g.column name: 'Destroy' do |planet|
+    link_to 'Destroy', planet, method: :delete, data: { confirm: 'Are you sure?' }
+  end
+end -%>
+</div>
 <%= link_to 'New Planet', new_planet_path %>

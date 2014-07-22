@@ -5,7 +5,7 @@
   <%= @family.product_family %>
 </p>
  <% @family.products.each do |f| %>
-  Product[<%= f.id %>]
+  <%= link_to "Product[#{f.id}]" , product_path(f.id) %>
   <%= f.product_name %> <br>
   <% end %>
 
