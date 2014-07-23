@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -18,4 +19,8 @@ def self.find_for_database_authentication(warden_conditions)
 def email_required?
   false
 end
+
+def role?(role)
+   return !!self.role.to_s.camelize
+  end
 end

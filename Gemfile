@@ -34,6 +34,7 @@ gem 'kaminari'
 gem 'rails-erd'
 gem 'ruby-graphviz'
 
+# Highcharts generation gem
 gem 'lazy_high_charts'
 
 # Importing CSV
@@ -43,9 +44,12 @@ gem 'smarter_csv'
 gem 'devise'
 gem 'cancancan', '~> 1.8'
 
-
+# Wice Grid
 gem "wice_grid", '3.4.2'
 gem 'jquery-ui-rails'
+
+# Heroku
+gem 'rails_12factor', group: :production
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

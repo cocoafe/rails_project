@@ -11,7 +11,7 @@
     planet.planet_name
   end
 
-  g.column name: 'Galaxy', attribute: 'galaxy_id' do |planet|
+  g.column name: 'Galaxy',model: Galaxy, attribute: 'galaxy_name' do |planet|
     link_to show_galaxy(planet.galaxy_id) , galaxy_path(planet.galaxy_id)
   end
   g.column name: 'View' do |planet|

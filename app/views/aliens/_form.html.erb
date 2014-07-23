@@ -1,4 +1,4 @@
-<%= form_for @alien, :url => { :action => :create , :id => @category.id } do |f| %>
+<%= form_for @alien do |f| %>
   <% if @alien.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@alien.errors.count, "error") %> prohibited this alien from being saved:</h2>

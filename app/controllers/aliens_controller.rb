@@ -1,10 +1,13 @@
 class AliensController < ApplicationController
+  load_and_authorize_resource
   before_action :set_alien, only: [:show, :edit, :update, :destroy]
 
   # GET /aliens
   # GET /aliens.json
   def index
-    @aliens_grid = initialize_grid(Alien)
+    
+    @aliens_grid = initialize_grid(Alien,
+      :include => [:category])
   end
 
   # GET /aliens/1

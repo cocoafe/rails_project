@@ -1,10 +1,12 @@
 class PlanetsController < ApplicationController
+  load_and_authorize_resource
   before_action :set_planet, only: [:show, :edit, :update, :destroy]
 
   # GET /planets
   # GET /planets.json
   def index
-    @planets_grid = initialize_grid(Planet)
+    @planets_grid = initialize_grid(Planet,
+      :include => [:galaxy])
   end
 
   # GET /planets/1

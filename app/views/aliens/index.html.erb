@@ -1,4 +1,5 @@
 <div class="table-model">
+
 <h1>Listing aliens</h1>
 <%= link_to 'New Alien', new_alien_path %>
 <%= grid(@aliens_grid) do |g|
@@ -11,7 +12,7 @@
     alien.alien_name
   end
 
-  g.column name: 'Alien Category', attribute: 'category_id' do |alien|
+  g.column name: 'Alien Category',model: Category , attribute: 'alien_category' do |alien|
     show_category(alien.category_id)
   end
   g.column name: 'View' do |alien|

@@ -1,5 +1,7 @@
 class Log < ActiveRecord::Base
 	belongs_to :alien	
+	belongs_to :product
+	belongs_to :planet
 
 	def chart_log
 		log = Log.all

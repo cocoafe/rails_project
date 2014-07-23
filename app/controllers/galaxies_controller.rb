@@ -1,4 +1,5 @@
 class GalaxiesController < ApplicationController
+  load_and_authorize_resource
   before_action :set_galaxy, only: [:show, :edit, :update, :destroy]
 
   # GET /galaxies

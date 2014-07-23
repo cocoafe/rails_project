@@ -11,8 +11,8 @@
     product.product_name
   end
 
-  g.column name: 'Product Family', attribute: 'family_id' do |product|
-    show_category(product.family_id)
+  g.column name: 'Product Family', model: Family , attribute: 'product_family' do |product|
+    show_family(product.family_id)
   end
   g.column name: 'View' do |product|
     link_to('View', product_path(product))

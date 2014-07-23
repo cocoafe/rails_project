@@ -1,11 +1,13 @@
 class LogsController < ApplicationController
+  load_and_authorize_resource
   before_action :set_log, only: [:show, :edit, :update, :destroy]
 
   # GET /logs
   # GET /logs.json
   def index
     
-    @logs_grid = initialize_grid(Log)
+    @logs_grid = initialize_grid(Log,
+      :include => [:alien,:product,:planet])
   end
 
   # GET /logs/1

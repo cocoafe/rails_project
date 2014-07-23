@@ -13,15 +13,15 @@
     log.id
   end
 
-  g.column name: 'Alien(id)', attribute: 'alien_id' do |log|
+  g.column name: 'Alien',model: Alien , attribute: 'alien_name' do |log|
     show_alien(log.alien_id)
   end
 
-  g.column name: 'Product(id)', attribute: 'product_id' do |log|
+  g.column name: 'Product',model: Product, attribute: 'product_name' do |log|
     show_product(log.product_id)
   end
 
-  g.column name: 'Planet(id)', attribute: 'planet_id' do |log|
+  g.column name: 'Planet',model: Planet, attribute: 'planet_name' do |log|
     show_planet(log.planet_id)
   end
 

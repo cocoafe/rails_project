@@ -1,10 +1,12 @@
 class ProductsController < ApplicationController
+  load_and_authorize_resource
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   # GET /products
   # GET /products.json
   def index
-    @products_grid = initialize_grid(Product)
+    @products_grid = initialize_grid(Product,
+      :include => [:family])
   end
 
   # GET /products/1
