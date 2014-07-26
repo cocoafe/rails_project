@@ -8,7 +8,9 @@ require 'smarter_csv'
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 	
 
-admin = User.create(:username => "admin" , :password => "12345678" , :password_confirmation => "12345678")
+admin = User.create(:username => "admin" , :password => "12345678" , :password_confirmation => "12345678", :role => "admin")
+reporter = User.create(:username => "reporter" , :password => "12345678" , :password_confirmation => "12345678", :role => "reporter")
+
 
 
 alien = SmarterCSV.process('csv/aliens.csv')

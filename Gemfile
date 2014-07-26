@@ -57,7 +57,7 @@ group :doc do
 end
 
 group :development, :test do
-
+  gem 'selenium-webdriver'
   gem 'rspec-rails', '~> 2.11.1'
   gem 'guard-rspec', '1.2.1'
   gem 'guard-spork', '1.2.0'  

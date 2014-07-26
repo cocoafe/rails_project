@@ -19,8 +19,7 @@ class AliensController < ApplicationController
 
   # GET /aliens/new
   def new
-    @category = Category.find(params[:id])
-    @alien = @category.alien.build
+    
   end
 
   # GET /aliens/1/edit
@@ -30,12 +29,11 @@ class AliensController < ApplicationController
   # POST /aliens
   # POST /aliens.json
   def create
-    @category = Category.find(params[:id])
-    @alien = @category.alien.build(alien_params)
+    @alien = Alien.new(alien_params)
   
     respond_to do |format|
       if @alien.save
-        format.html { redirect_to category_path(:id => @category.id) , notice: 'Alien was successfully created.' }
+        format.html { redirect_to alien_path(:id => @alien.id) , notice: 'Alien was successfully created.' }
         format.json { render action: 'show', status: :created, location: @alien }
       else
         format.html { render action: 'new' }

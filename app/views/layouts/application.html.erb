@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>ProjectVodafone</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
@@ -12,6 +13,7 @@
     <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
   </div>
 <% end %>
+<%unless current_page?('/users/sign_in')%>
 <div class="header-cont">
   <%= link_to 'Home', home_index_path unless current_page?(home_index_path)%>
   <%= link_to 'Aliens' , aliens_path %> 
@@ -20,11 +22,13 @@
   <%= link_to "Logs", logs_path %>
   <%= link_to "Charts", charts_index_path %>
   <div class="logout">
-  <%= current_user.username.capitalize if current_user.present?  %>
+  <%= current_user.username.capitalize if current_user.present? %> 
   <%= link_to 'Logout', destroy_user_session_path, method: :delete%>
   </div>
 </div>
+<% end %>
 <br>
 <%= yield %>
+
 </body>
 </html>
