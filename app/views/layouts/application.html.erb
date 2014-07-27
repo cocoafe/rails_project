@@ -14,13 +14,15 @@
   </div>
 <% end %>
 <%unless current_page?('/users/sign_in')%>
+
 <div class="header-cont">
-  <%= link_to 'Home', home_index_path unless current_page?(home_index_path)%>
-  <%= link_to 'Aliens' , aliens_path %> 
-  <%= link_to 'Products' , products_path %>
-  <%= link_to 'Planet' , planets_path %>
-  <%= link_to "Logs", logs_path %>
+  <%= link_to 'Home', home_index_path unless current_page?(home_index_path)%> |
+  <%= link_to 'Aliens' , aliens_path %> |
+  <%= link_to 'Products' , products_path %> |
+  <%= link_to 'Planet' , planets_path %> |
+  <%= link_to "Logs", logs_path %> |
   <%= link_to "Charts", charts_index_path %>
+
   <div class="logout">
   <%= current_user.username.capitalize if current_user.present? %> 
   <%= link_to 'Logout', destroy_user_session_path, method: :delete%>

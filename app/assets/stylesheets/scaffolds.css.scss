@@ -2,11 +2,23 @@ body{
   font-size: 12px;
   color: #fff;
 }
+.menu{
+  line-height: 35px;
+  font-size: 15px;
+
+}
+div.menu a{
+  color: #086A87;
+  text-decoration: underline;
+
+}
+
 .logout{
   display: inline;
   float: right;
-  margin-right: 20px
+  margin-right: 20px;
 }
+
 h1{
 
    font-family: times, Times New Roman, times-roman, georgia, serif;
@@ -20,8 +32,10 @@ h1{
 }
 .header-cont{
   text-align: center;
+  padding-left: 9%;
   padding-top: 20px;
   padding-bottom: 15px;
+  word-spacing: 5px;
   font-size: 16px;
   border-width: 1px;
   border-radius: 15px;
