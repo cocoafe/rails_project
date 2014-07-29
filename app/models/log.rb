@@ -1,11 +1,12 @@
 class Log < ActiveRecord::Base
-	belongs_to :alien	
+	belongs_to :alien
 	belongs_to :product
 	belongs_to :planet
+	validates :revenue_month, :numericality => {:greater_than_or_equal_to => 0.0}
 
 	def chart_log
 		log = Log.all
-		month = [1,2,3,4]
+		month = [1,2,3,4,5]
 		data_for_chart = {}
 		profit_closed = 0
 		closed = 0
@@ -16,7 +17,7 @@ class Log < ActiveRecord::Base
 
 				if log.created_date.month == month
 
-					if log.closed 
+					if log.closed
 						closed += 1
 						profit_closed += log.revenue_month
 						profit_closed += log.setup_charge if log.setup_charge.present?
@@ -26,26 +27,26 @@ class Log < ActiveRecord::Base
 				end
 			end
 
-			
+
 			log_closed_to_ar = [closed]
 			log_name = [show_month(current_month) + " " + current_year]
 			log_profit_closed = [profit_closed.to_f]
 
 			if data_for_chart["Profit_Closed"].nil?
 				data_for_chart["Name"] = log_name
-				
+
 			    data_for_chart["Closed"] = log_closed_to_ar
 			    data_for_chart["Profit_Closed"] = log_profit_closed
-		        
+
 		        closed = 0
 		        profit_closed = 0
 			else
 
 		 		data_for_chart["Name"] += log_name
-		 		
+
 		 		data_for_chart["Closed"] += log_closed_to_ar
 		 		data_for_chart["Profit_Closed"] += log_profit_closed
-		 		
+
 		 		closed = 0
 		 		profit_closed = 0
 		    end
@@ -63,7 +64,7 @@ class Log < ActiveRecord::Base
 			"March"
 		when 4
 			"April"
-		when 5 
+		when 5
 			"May"
 		end
 	end

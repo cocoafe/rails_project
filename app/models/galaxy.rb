@@ -1,10 +1,11 @@
 class Galaxy < ActiveRecord::Base
 	has_many :planet
- 
+	validates :galaxy_name , presence: true
+
 	def chart_galaxy
 		galaxy = Galaxy.all
 		galaxy_chart = {}
-		
+
 		closed = 0
 		profit_closed = 0
 		galaxy.each do |galaxy|
@@ -15,12 +16,12 @@ class Galaxy < ActiveRecord::Base
 						profit_closed += log.revenue_month
 						profit_closed += log.setup_charge if log.setup_charge.present?
 					end
-					
-					
-					
+
+
+
 				end
 			end
-			
+
 			galaxy_name = [show_galaxy(galaxy.id)]
 			galaxy_closed_to_ar = [closed]
 			galaxy_closed_profit = [profit_closed.to_f]
@@ -29,15 +30,15 @@ class Galaxy < ActiveRecord::Base
 				galaxy_chart["Name"] = galaxy_name
 			    galaxy_chart["Closed"] = galaxy_closed_to_ar
 			    galaxy_chart["Profit_Closed"] = galaxy_closed_profit
-		        
+
 		        closed = 0
 		        profit_closed = 0
 			else
 	     galaxy_chart["Name"] += galaxy_name
-		 
+
 		 galaxy_chart["Closed"] += galaxy_closed_to_ar
 		 galaxy_chart["Profit_Closed"] += galaxy_closed_profit
-		
+
 		 closed = 0
 		 profit_closed = 0
 		   end

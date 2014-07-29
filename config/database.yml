@@ -1,16 +1,17 @@
 development:
   adapter: postgresql
+  host: localhost
   encoding: unicode
   database: archy_development
   pool: 20
- 
   username: georgi
-  password: toor
+  password:
 
 test:
   adapter: postgresql
+  host: localhost
   encoding: unicode
   database: archy_test
   pool: 20
   username: georgi
-  password: toor
+  password:

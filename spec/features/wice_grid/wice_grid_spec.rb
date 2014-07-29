@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe "Wice grid functionality", :js => true  do
 
-	def sign_in 
+	def sign_in
 		visit '/users/sign_in'
 		fill_in 'Username:' , :with => 'admin'
 		fill_in 'Password:' , :with => '12345678'
@@ -14,10 +14,10 @@ describe "Wice grid functionality", :js => true  do
 		sign_in
 		visit '/logs'
         fill_in('grid_f_aliens_alien_name', :with => 'Becker, Zulauf and Fadel')
-		find(:css, '#grid_submit_grid_icon').click       
-        
+		find(:css, '#grid_submit_grid_icon').click
+
         within '.pagination_status' do
-        page.should have_content('1-20 / 38')
+        page.should have_content('1-20 / 24 show all')
         end
 	end
 
@@ -38,8 +38,8 @@ describe "Wice grid functionality", :js => true  do
         click_on 'Product'
         end
         expect(page).to have_content('Awesome Cotton Gloves')
-		
+
 	end
 
-	
+
 end

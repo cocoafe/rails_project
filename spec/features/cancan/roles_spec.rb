@@ -16,7 +16,7 @@ describe "cancan abilities " do
 
 	it "deny access to logs for reporter" do
 		sign_in("reporter")
-		visit 'logs'
+		click_link 'Logs'
 		expect(page).to have_content('Access Denied!')
 
 	end
