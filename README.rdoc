@@ -1,28 +1,60 @@
-== README
+Assignment ->
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+To all potential cadets:
 
-Things you may want to cover:
+ 
 
-* Ruby version
+Our company has been so successful that we’ve started our own interplanetary business!
 
-* System dependencies
+ 
 
-* Configuration
+ 
 
-* Database creation
+We keep a log of all sales in files like the one you see, and track when a sale has been completed to dispatch our ships. We also like to look at which ones we don’t win, to help us plan our revenge.
 
-* Database initialization
+ 
 
-* How to run the test suite
+As you will see from this log, we sell all kinds of things to aliens in faraway galaxies, anything from Ergonomic Concrete Gloves to Rustic Steel Computers. But these logs have become so large that it’s become very hard to see which planets or products are the most profitable.
 
-* Services (job queues, cache servers, search engines, etc.)
+ 
 
-* Deployment instructions
+ 
 
-* ...
+Your mission is:
 
+ 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+1)   Familiarize with the data, with a view to build a schema structure to support it. Look for common fields across the records to deduce which could/should be managed in their own models and build them with dependencies that can be later used to rebuild the original data.
+
+2)   Create a Rails (3 or 4) application with:
+
+a.   Underpinning data model from step 1
+
+b.   Basic authentication (Devise, Omniauth or from scratch) – up to you.
+
+c.   Basic authorization model (Cancan or from scratch) – up to you.
+
+d.   Create two types or user (must be in seed file to replicate when cloning your app)
+
+                              i.   Admin
+
+                            ii.   Reporting
+
+                          iii.   Guest
+
+e.   Three screens needed
+
+                              i.   Login page (everyone should be able to access)
+
+                            ii.   Page with a chart with info from model. This can be line, bar, bubble, anything you feel represents the data best. It must use charting libraries like Highcharts, Flot, Google chart tools, Chart.js or FusionCharts. (only Reporting and Admin should be able to access)
+
+                          iii.   Page with a table with columns from the model with the ability to sort, search and filter (use Datatables, wice_grid or jqGrid). (only Admin should be able to access)
+
+f.   Pages must have a responsive design (you can use Bootstrap, Foundation or any other library).
+
+ 
+
+For bonus fuel points:
+
+1)   Explain this ruby idiom: a ||= b
+
