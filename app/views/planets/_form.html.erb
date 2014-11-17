@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :galaxy_id %><br>
-    <%= f.number_field :galaxy_id %>
+    <%= f.select :galaxy_id , options_for_select(Galaxy.find(:all).collect{ |f| [f.galaxy_name, f.id] }) %>
   </div>
   <div class="actions">
     <%= f.submit %>

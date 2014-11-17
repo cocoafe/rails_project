@@ -12,16 +12,16 @@
   <% end %>
   <div class="field">
    <%= f.label :alien_id %>
-   <%= f.text_field :alien_id %>
+   <%= f.select :alien_id , options_for_select(Alien.find(:all).collect{ |f| [f.alien_name, f.id] }) %>
   </div>
-  
+
   <div class="field">
     <%= f.label :product_id %><br>
-    <%= f.number_field :product_id %>
+    <%= f.select :product_id , options_for_select(Product.find(:all).collect{ |f| [f.product_name, f.id] }) %>
   </div>
   <div class="field">
     <%= f.label :planet_id %><br>
-    <%= f.number_field :planet_id %>
+    <%= f.select :planet_id , options_for_select(Planet.find(:all).collect{ |f| [f.planet_name, f.id] }) %>
   </div>
   <div class="field">
     <%= f.label :stage %><br>

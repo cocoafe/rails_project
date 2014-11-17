@@ -17,7 +17,8 @@
   </div>
   <div class="field">
     <%= f.label :family_id %><br>
-    <%= f.number_field :family_id %>
+    <%= f.select :family_id , options_for_select(Family.find(:all).collect{ |f| [f.product_family, f.id] }) %>
+
   </div>
   <div class="actions">
     <%= f.submit %>

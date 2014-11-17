@@ -13,7 +13,7 @@
   end
 
   g.column name: 'Alien Category',model: Category , attribute: 'alien_category' do |alien|
-    show_category(alien.category_id)
+    alien.category.alien_category
   end
   g.column name: 'View' do |alien|
     link_to('View', alien_path(alien))
@@ -27,4 +27,3 @@
   end
 end -%>
 </div>
-

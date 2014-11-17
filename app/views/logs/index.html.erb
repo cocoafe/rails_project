@@ -7,22 +7,22 @@
     {style: 'background-color: rgb(255, 255, 204);'}
     end
 
-  
+
 
   g.column name: 'ID', attribute: 'id' do |log|
     log.id
   end
 
   g.column name: 'Alien',model: Alien , attribute: 'alien_name' do |log|
-    show_alien(log.alien_id)
+    log.alien.alien_name
   end
 
   g.column name: 'Product',model: Product, attribute: 'product_name' do |log|
-    show_product(log.product_id)
+    log.product.product_name
   end
 
   g.column name: 'Planet',model: Planet, attribute: 'planet_name' do |log|
-    show_planet(log.planet_id)
+    log.planet.planet_name
   end
 
   g.column name: 'Stage', attribute: 'stage' do |log|

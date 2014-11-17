@@ -15,8 +15,12 @@
     <%= f.label :alien_name %><br>
     <%= f.text_field :alien_name %>
   </div>
+  <div class="field">
+    <%= f.label :category_id %>
+    <%= f.select :category_id , options_for_select(Category.find(:all).collect{ |f| [f.alien_category, f.id] }) %>
+  </div>
   <div class="actions">
   <%= f.submit %>
   </div>
-  
+
 <% end %>
